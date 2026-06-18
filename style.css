@@ -272,6 +272,16 @@ body {
     cursor: pointer;
 }
 
+/*IT website*/
+.IT {
+    position: absolute;
+    top: 20vw;
+    left: 8vw;
+    transform: none;
+    z-index: 2;
+    cursor: pointer;
+}
+
 @media (max-width: 768px) {
 
     /* background */
