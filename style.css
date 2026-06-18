@@ -276,7 +276,8 @@ body {
 .IT {
     position: absolute;
     top: 20vw;
-    left: 8vw;
+    left: 5vw;
+    width:370px;
     transform: none;
     z-index: 2;
     cursor: pointer;
@@ -523,9 +524,18 @@ body {
 
     /*snake*/
     .snake {
-        top: 74vw;
+        top: 60vw;
         left: 22vw;
         width:200px;
+        cursor: pointer;
+    }
+
+    /*IT website*/
+    .IT {
+        position: absolute;
+        top: 125vw;
+        left: 22vw;
+        width: 200px;
         cursor: pointer;
     }
 }
