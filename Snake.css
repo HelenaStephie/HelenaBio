@@ -90,7 +90,23 @@ body {
             padding: 15px 0;
             font-size: 1rem;
         }
+    .wrapper {
+        position: absolute;
+        top: 140px;
+        left: 18px;
+        width: 90vmin;
+        height: 140vmin;
+        display: flex;
+        overflow: hidden;
+        flex-direction: column;
+        justify-content: center;
+        border-radius: 5px;
+        background: #293447;
+        box-shadow: 0 20px 40px rgba(52, 87, 220, 0.2);
+    }
+
 }
+
 
 .image-boxS {
     position: relative;
@@ -150,3 +166,53 @@ body {
     cursor: pointer;
 }
 
+@media (max-width: 768px) {
+
+    /* background */
+    .bgS {
+        width: 100%;
+        height: 720px;
+        display: block;
+        position: relative;
+    }
+
+    /*goldstar*/
+    .goldstar {
+        top: 0vw;
+        left: 0vw;
+        width: 80px;
+        cursor: pointer;
+    }
+
+    /*banner*/
+    .banner {
+        width: 40px;
+        top: 0vw;
+        right: 0vw;
+        pointer-events: none;
+    }
+
+    /* emailbutton */
+    .emailbuttonS {
+        top: 2vw;
+        left: 91.1vw;
+        width: 26px;
+    }
+
+    /* homebutton */
+    .homebuttonS {
+        position: absolute;
+        top: 9vw;
+        left: 91vw;
+        width: 26px;
+    }
+
+    /* starbutton */
+    .starbuttonS {
+        position: absolute;
+        top: 16vw;
+        left: 91vw;
+        width: 26px;
+    }
+
+}
