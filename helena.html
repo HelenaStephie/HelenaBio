@@ -15,7 +15,7 @@
             height:100%;
             pointer-events:none;">
 
-	<script>
+<script>
         window.alert("Hello! You've stumbled upon a test page. Enjoy the view 😉");
     </script>
 
@@ -110,41 +110,36 @@
             </form>
         </div>
 
-        
-		
-		<h2 style="font-family: Arial; color: white;">
-            You've scrolled so far! Have a flower 🌸
-        </h2>
+       
+        <button onClick="showImage()">Hey there! Have a flower 🌸</button>
+<br>
+<img src="" id = "imageHolder" onMouseOver="increaseSize()" onMouseOut="decreaseSize()">
 
-        <button onClick="showImage()">Click to get flower!</button>
-		<br>
-		<img src="" id = "imageHolder" onMouseOver="increaseSize()" onMouseOut="decreaseSize()">
-		
-		<script>
-		 function showImage(){
-			document.getElementById
-			("imageHolder").src = "images/flower.png"
-		 }
-		
-		function increaseSize(){
-			document. 
-			getElementById("imageHolder").src = "images/flower.png"
-			document. 
-			getElementById("imageHolder").height = "450";
-			document. 
-			getElementById("imageHolder").width = "450";
-		}
-		
-		function decreaseSize(){
-			document. 
-			getElementById("imageHolder").src = "images/flower.png"
-			document.
-			getElementById("imageHolder").height = "400";
-			document. 
-			getElementById("imageHolder").width = "400";
-		}
-		</script>
-		
+<script>
+function showImage(){
+document.getElementById
+("imageHolder").src = "images/flower.png"
+}
+
+function increaseSize(){
+document.
+getElementById("imageHolder").src = "images/flower.png"
+document.
+getElementById("imageHolder").height = "450";
+document.
+getElementById("imageHolder").width = "450";
+}
+
+function decreaseSize(){
+document.
+getElementById("imageHolder").src = "images/flower.png"
+document.
+getElementById("imageHolder").height = "400";
+document.
+getElementById("imageHolder").width = "400";
+}
+</script>
+
     </center>
 
     <p id="p1"></p>
@@ -166,31 +161,58 @@
         document.getElementById("p2").style.fontSize = "20px";
         document.getElementById("p2").style.textAlign = "center";
         document.getElementById("p2").style.fontFamily = "Impact, sans-serif";
-    
-		setTimeout (function(){
-	     prompt("Reminder: It's been 10 seconds! Take a break and type something");
-	     }, 10000);
-	</script>
-	
-	<input type = "text" id = "number1">
-		<input type = "text" id = "number2">
-		<button onclick = "addTogether()">Add</button>
-	<script>
-	 function addTogether(){
-		 var num1 = document.
-		 getElementById("number1").value;
-		 
-		 var num2 = document.
-		 getElementById("number2").value;
-		 
-		 var total = Number (num1) + Number(num2);
-		 
-		 document.getElementById("number1").
-		 value = total;
-		 document.getElementById("number2"). 
-		 value = total;
-	 }
-	</script>
-	
+</script>
+       
+<p id="feel"></p>
+   <p id="feedback"></p>
+           
+    <script>
+       
+setTimeout(function(){
+          var feel = prompt("Reminder: It's been 10 seconds! Take a break and tell me how you're feeling on a scale of 1 to 10!");
+       
+          document.getElementById("feel").innerHTML =
+             "You replied with " + feel + " when I asked you how you were feeling.";
+
+          document.getElementById("feel").style.color = "black";
+          document.getElementById("feel").style.fontFamily = "Arial";
+   
+  var score = Number(feel);
+      var message = "";
+
+      if (score >= 5) {
+         message = "Great";
+      } else if (score >= 0) {
+         message = "Hope your day gets better";
+      } else {
+         message = "";
+      }
+
+      document.getElementById("feedback").innerHTML = message;
+ 
+    }, 10000);
+
+</script>
+
+<input type = "text" id = "number1">
+<input type = "text" id = "number2">
+<button onclick = "addTogether()">Add</button>
+<script>
+function addTogether(){
+var num1 = document.
+getElementById("number1").value;
+
+var num2 = document.
+getElementById("number2").value;
+
+var total = Number (num1) + Number(num2);
+
+document.getElementById("number1").
+value = total;
+document.getElementById("number2").
+value = total;
+}
+</script>
+
 </body>
 </html>
