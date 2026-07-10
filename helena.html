@@ -98,7 +98,31 @@
             </select>
         </div>
 
-        <div align="left">
+     <div align="left">
+            <h2 style="font-family: Arial; color: white;">
+                Here's a function to add stuff together:
+            </h2><div>
+		<input type = "text" id = "number1">
+		<input type = "text" id = "number2">
+		<button onclick = "addTogether()">Add</button>
+	<script>
+	 function addTogether(){
+		 var num1 = document.
+		 getElementById("number1").value;
+		 
+		 var num2 = document.
+		 getElementById("number2").value;
+		 
+		 var total = Number (num1) + Number(num2);
+		 
+		 document.getElementById("number1").
+		 value = total;
+		 document.getElementById("number2"). 
+		 value = total;
+	    }
+		</script>
+		
+		<div align="left">
             <h2 style="font-family: Arial; color: white;">
                 These are radio buttons:
             </h2>
@@ -110,13 +134,15 @@
             </form>
         </div>
 
-        
+   
+    <div align="center">    
         <button onClick="showImage()">Hey there! Have a flower 🌸</button>
 		<br>
 		<img src="" id = "imageHolder" onMouseOver="increaseSize()" onMouseOut="decreaseSize()">
 		
 		<script>
-		 function showImage(){
+		 
+	function showImage(){
 			document.getElementById
 			("imageHolder").src = "images/flower.png"
 		 }
@@ -167,80 +193,82 @@
 	    <p id="feedback"></p>
         <p id="gift"></p>
 <script>
-       
-		setTimeout(function(){
-          var feel = prompt("Reminder: It's been 10 seconds! Take a break and tell me how you're feeling on a scale of 1 to 10!");
-        
-          document.getElementById("feel").innerHTML =
-             "You replied with " + feel + " when I asked you how you were feeling.";
-
-          document.getElementById("feel").style.color = "black";
-          document.getElementById("feel").style.fontFamily = "Arial";
+setTimeout(function() {
     
-		   var score = Number(feel);
-      var message = "";
+    var feel = prompt("Reminder: It's been 10 seconds! Take a break and tell me how you're feeling on a scale of 1 to 10!");
+    var score = Number(feel);
+    var message = "";
 
-      if (score >= 10) {
-         message = "Perfection eh? Good for you!";
-      } else if (score >= 9) {
-         message = "Yippee! Hope your day continues to be this blessed!";
-	  } else if (score >= 8) {
-         message = "Excellent! I'm so happy for you!";
-	  } else if (score >= 7) {
-         message = "You know what happens now...*inhales* 67777777777!!!";
-	  } else if (score >= 6) {
-         message = "Better than most days I guess...still, not the worst score!";
-	  } else if (score >= 5) {
-         message = "Average? Understandable. At least it's not any lower!";
-	  } else if (score >= 4) {
-         message = "Four's a bit low, but not too bad!";
-	  } else if (score >= 3) {
-         message = "A natural 3? Chin up! I'm sure you're day will get better!";
-	  } else if (score >= 2) {
-         message = "Oh no! Hope your day gets better";
-	  } else if (score >= 1) {
-         message = "I'm so sorry. I hope your day gets better!";
-	  } else if (score >= 0) {
-         message = "Oh me oh my! We simply CANNOT have that! Wait here for a while, I'll bring you a little something to cheer you up"
-		  setTimeout(function(){
-          var gift = prompt("Quick question: Which do you prefer? Cat, dog or cake? Answer in lowercase for best experience!");
+    var feedbackElement = document.getElementById("feedback");
+    
+    if (feedbackElement) {
+        feedbackElement.innerHTML = "You replied with " + feel + " when I asked you how you were feeling.";
+        feedbackElement.style.color = "black";
+        feedbackElement.style.fontFamily = "Arial";
+    }
+
+    if (score >= 10) {
+        message = "Perfection eh? Good for you!";
+    } else if (score >= 9) {
+        message = "Yippee! Hope your day continues to be this blessed!";
+    } else if (score >= 8) {
+        message = "Excellent! I'm so happy for you!";
+    } else if (score >= 7) {
+        message = "You know what happens now...*inhales* 67777777777!!!";
+    } else if (score >= 6) {
+        message = "Better than most days I guess...still, not the worst score!";
+    } else if (score >= 5) {
+        message = "Average? Understandable. At least it's not any lower!";
+    } else if (score >= 4) {
+        message = "Four's a bit low, but not too bad!";
+    } else if (score >= 3) {
+        message = "A natural 3? Chin up! I'm sure your day will get better!";
+    } else if (score >= 2) {
+        message = "Oh no! Hope your day gets better";
+    } else if (score >= 1) {
+        message = "I'm so sorry. I hope your day gets better!";
+    } else if (score >= 0) {
+        message = "Oh me oh my! We simply CANNOT have that! Wait here for a while, I'll bring you a little something to cheer you up...";
         
-          document.getElementById("gift").innerHTML =
-             "You said you preferred " + gift + "";
+        setTimeout(function() {
+            var gift = prompt("Quick question: Which do you prefer? Cat, dog or cake? Answer in lowercase for best experience!");
+            var giftMessage = "";
 
-          document.getElementById("gift").style.color = "black";
-          document.getElementById("gift").style.fontFamily = "Arial";;
-			  
-	   
-		  }, 5000)
-      } else {
-         message = "I don't think you answered the question properly.";
-      }
+            switch(gift) {
+                case "cake":
+                    giftMessage = "Here is a delicious cake! 🎂";
+                    break;
+                case "cat":
+                    giftMessage = "Here is a cute kitty! 🐱";
+                    break;
+                case "dog":
+                    giftMessage = "Here is a happy puppy! 🐶";
+                    break;
+				case "Cake":
+                    giftMessage = "Here is a delicious cake! 🎂";
+                    break;
+                case "Cat":
+                    giftMessage = "Here is a cute kitty! 🐱";
+                    break;
+                case "Dog":
+                    giftMessage = "Here is a happy puppy! 🐶";
+                    break;
+                default:
+                    giftMessage = "Here is a beautiful flower! 🌸";
+            }
+            
+            if (feedbackElement) {
+                feedbackElement.innerHTML = "You said you preferred " + gift + ". " + giftMessage;
+            }
+        }, 5000);
+    } else {
+        message = "I don't think you answered the question properly.";
+    }
 
-      document.getElementById("feedback").innerHTML = message;
-		   
-    }, 10000);
-		
-	</script>
-<input type = "text" id = "number1">
-		<input type = "text" id = "number2">
-		<button onclick = "addTogether()">Add</button>
-	<script>
-	 function addTogether(){
-		 var num1 = document.
-		 getElementById("number1").value;
-		 
-		 var num2 = document.
-		 getElementById("number2").value;
-		 
-		 var total = Number (num1) + Number(num2);
-		 
-		 document.getElementById("number1").
-		 value = total;
-		 document.getElementById("number2"). 
-		 value = total;
-	 }
-	</script>
-	
+    if (feedbackElement) {
+        feedbackElement.innerHTML = message;
+    }
+}, 10000);
+</script>	
 </body>
 </html>
