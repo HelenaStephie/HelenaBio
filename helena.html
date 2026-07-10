@@ -231,7 +231,7 @@ setTimeout(function() {
         message = "Oh me oh my! We simply CANNOT have that! Wait here for a while, I'll bring you a little something to cheer you up...";
         
         setTimeout(function() {
-            var gift = prompt("Quick question: Which do you prefer? Cat, dog or cake? Answer in lowercase for best experience!");
+            var gift = prompt("Quick question: Which do you prefer? cat, dog or cake? Answer in lowercase for best experience!");
             var giftMessage = "";
 
             switch(gift) {
@@ -254,11 +254,11 @@ setTimeout(function() {
                     giftMessage = "Here is a happy puppy! 🐶";
                     break;
                 default:
-                    giftMessage = "Here is a beautiful flower! 🌸";
+                    giftMessage = "I couldn't get one of those, so here is a beautiful flower instead! 🌸";
             }
             
             if (feedbackElement) {
-                feedbackElement.innerHTML = "You said you preferred " + gift + ". " + giftMessage;
+                feedbackElement.innerHTML = "So you have chosen " + gift + ". " + giftMessage;
             }
         }, 5000);
     } else {
