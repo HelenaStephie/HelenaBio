@@ -15,7 +15,7 @@
             height:100%;
             pointer-events:none;">
 
-<script>
+	<script>
         window.alert("Hello! You've stumbled upon a test page. Enjoy the view 😉");
     </script>
 
@@ -110,36 +110,36 @@
             </form>
         </div>
 
-       
+        
         <button onClick="showImage()">Hey there! Have a flower 🌸</button>
-<br>
-<img src="" id = "imageHolder" onMouseOver="increaseSize()" onMouseOut="decreaseSize()">
-
-<script>
-function showImage(){
-document.getElementById
-("imageHolder").src = "images/flower.png"
-}
-
-function increaseSize(){
-document.
-getElementById("imageHolder").src = "images/flower.png"
-document.
-getElementById("imageHolder").height = "450";
-document.
-getElementById("imageHolder").width = "450";
-}
-
-function decreaseSize(){
-document.
-getElementById("imageHolder").src = "images/flower.png"
-document.
-getElementById("imageHolder").height = "400";
-document.
-getElementById("imageHolder").width = "400";
-}
-</script>
-
+		<br>
+		<img src="" id = "imageHolder" onMouseOver="increaseSize()" onMouseOut="decreaseSize()">
+		
+		<script>
+		 function showImage(){
+			document.getElementById
+			("imageHolder").src = "images/flower.png"
+		 }
+		
+		function increaseSize(){
+			document. 
+			getElementById("imageHolder").src = "images/flower.png"
+			document. 
+			getElementById("imageHolder").height = "450";
+			document. 
+			getElementById("imageHolder").width = "450";
+		}
+		
+		function decreaseSize(){
+			document. 
+			getElementById("imageHolder").src = "images/flower.png"
+			document.
+			getElementById("imageHolder").height = "400";
+			document. 
+			getElementById("imageHolder").width = "400";
+		}
+		</script>
+		
     </center>
 
     <p id="p1"></p>
@@ -161,58 +161,86 @@ getElementById("imageHolder").width = "400";
         document.getElementById("p2").style.fontSize = "20px";
         document.getElementById("p2").style.textAlign = "center";
         document.getElementById("p2").style.fontFamily = "Impact, sans-serif";
-</script>
+	</script>
+        
+		<p id="feel"></p>
+	    <p id="feedback"></p>
+        <p id="gift"></p>
+<script>
        
-<p id="feel"></p>
-   <p id="feedback"></p>
-           
-    <script>
-       
-setTimeout(function(){
+		setTimeout(function(){
           var feel = prompt("Reminder: It's been 10 seconds! Take a break and tell me how you're feeling on a scale of 1 to 10!");
-       
+        
           document.getElementById("feel").innerHTML =
              "You replied with " + feel + " when I asked you how you were feeling.";
 
           document.getElementById("feel").style.color = "black";
           document.getElementById("feel").style.fontFamily = "Arial";
-   
-  var score = Number(feel);
+    
+		   var score = Number(feel);
       var message = "";
 
-      if (score >= 5) {
-         message = "Great";
-      } else if (score >= 0) {
-         message = "Hope your day gets better";
+      if (score >= 10) {
+         message = "Perfection eh? Good for you!";
+      } else if (score >= 9) {
+         message = "Yippee! Hope your day continues to be this blessed!";
+	  } else if (score >= 8) {
+         message = "Excellent! I'm so happy for you!";
+	  } else if (score >= 7) {
+         message = "You know what happens now...*inhales* 67777777777!!!";
+	  } else if (score >= 6) {
+         message = "Better than most days I guess...still, not the worst score!";
+	  } else if (score >= 5) {
+         message = "Average? Understandable. At least it's not any lower!";
+	  } else if (score >= 4) {
+         message = "Four's a bit low, but not too bad!";
+	  } else if (score >= 3) {
+         message = "A natural 3? Chin up! I'm sure you're day will get better!";
+	  } else if (score >= 2) {
+         message = "Oh no! Hope your day gets better";
+	  } else if (score >= 1) {
+         message = "I'm so sorry. I hope your day gets better!";
+	  } else if (score >= 0) {
+         message = "Oh me oh my! We simply CANNOT have that! Wait here for a while, I'll bring you a little something to cheer you up"
+		  setTimeout(function(){
+          var gift = prompt("Quick question: Which do you prefer? Cat, dog or cake? Answer in lowercase for best experience!");
+        
+          document.getElementById("gift").innerHTML =
+             "You said you preferred " + gift + "";
+
+          document.getElementById("gift").style.color = "black";
+          document.getElementById("gift").style.fontFamily = "Arial";;
+			  
+	   
+		  }, 500)
       } else {
-         message = "";
+         message = "I don't think you answered the question properly.";
       }
 
       document.getElementById("feedback").innerHTML = message;
- 
+		   
     }, 10000);
-
-</script>
-
+		
+	</script>
 <input type = "text" id = "number1">
-<input type = "text" id = "number2">
-<button onclick = "addTogether()">Add</button>
-<script>
-function addTogether(){
-var num1 = document.
-getElementById("number1").value;
-
-var num2 = document.
-getElementById("number2").value;
-
-var total = Number (num1) + Number(num2);
-
-document.getElementById("number1").
-value = total;
-document.getElementById("number2").
-value = total;
-}
-</script>
-
+		<input type = "text" id = "number2">
+		<button onclick = "addTogether()">Add</button>
+	<script>
+	 function addTogether(){
+		 var num1 = document.
+		 getElementById("number1").value;
+		 
+		 var num2 = document.
+		 getElementById("number2").value;
+		 
+		 var total = Number (num1) + Number(num2);
+		 
+		 document.getElementById("number1").
+		 value = total;
+		 document.getElementById("number2"). 
+		 value = total;
+	 }
+	</script>
+	
 </body>
 </html>
