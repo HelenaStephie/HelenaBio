@@ -311,78 +311,95 @@ function showPrompt() {
         
 <div align="left">
    <h2 style="font-family: Arial; color: white;">
-        Here's a neat little program that responds based on your input:
+        Here's a neat little program that responds based on your input!
+   </h2>
+	<h2 style="font-family: Arial; color: white;">
+        (wait 10 seconds for the prompt):
    </h2>
 </div>
 
-		 
-		<p id="feel"></p>
-	    <p id="feedback"></p>
-        <p id="gift"></p>	 		 
-		 
-<script>
-setTimeout(function() {
-    
-    var feel = prompt("Reminder: It's been 10 seconds! Take a break and tell me how you're feeling on a scale of 1 to 10!");
-    var score = Number(feel);
-    var message = "";
+<p id="feel"></p> 
+<p id="feedback"></p> 
+<p id="gift"></p>
 
-    var feedbackElement = document.getElementById("feedback");
+<button id="resetBtn">
+    Check in again
+</button>
+
+<script>
+
+var giftTimeout; 
+
+
+function startCheckIn() {
+   
+    clearTimeout(giftTimeout);
     
-    if (feedbackElement) {
-        feedbackElement.innerHTML = "You replied with " + feel + " when I asked you how you were feeling.";
-        feedbackElement.style.color = "black";
-        feedbackElement.style.fontFamily = "Arial";
+   
+    var giftElement = document.getElementById("gift");
+    if (giftElement) {
+        giftElement.innerHTML = "";
     }
 
-    if (score >= 10) {
-        message = "Perfection eh? Good for you!";
+    var feel = prompt("Reminder: Take a break and tell me how you're feeling on a scale of 1 to 10!");
+    
+    
+    if (feel === null) return; 
+
+    var score = Number(feel);
+    var message = "";
+    var feedbackElement = document.getElementById("feedback");
+
+    
+    var resetBtn = document.getElementById("resetBtn");
+    if (resetBtn) {
+        resetBtn.style.display = "inline-block";
+    }
+
+    
+    if (feel.trim() === "" || isNaN(score)) {
+        message = "I don't think you answered the question properly.";
+    } else if (score >= 10) {
+        message = "That high eh? Good for you!";
     } else if (score >= 9) {
-        message = "Yippee! Hope your day continues to be this blessed!";
+        message = "Nine? Yippee! Hope your day continues to be this blessed!";
     } else if (score >= 8) {
-        message = "Excellent! I'm so happy for you!";
+        message = "Eight! Excellent! I'm so happy for you!";
     } else if (score >= 7) {
-        message = "You know what happens now...*inhales* 67777777777!!!";
+        message = "7? You know what happens now...*inhales* 67777777777!!!";
     } else if (score >= 6) {
-        message = "Better than most days I guess...still, not the worst score!";
+        message = "Six is better than most days I guess...still, not the worst score!";
     } else if (score >= 5) {
-        message = "Average? Understandable. At least it's not any lower!";
+        message = "An average five? Understandable. At least it's not any lower!";
     } else if (score >= 4) {
         message = "Four's a bit low, but not too bad!";
     } else if (score >= 3) {
         message = "A natural 3? Chin up! I'm sure your day will get better!";
     } else if (score >= 2) {
-        message = "Oh no! Hope your day gets better";
+        message = "Oh no! Just two? Hope your day gets better";
     } else if (score >= 1) {
-        message = "I'm so sorry. I hope your day gets better!";
-    } else if (score >= 0) {
+        message = "Aw a one? I'm so sorry. I hope your day gets better!";
+    } else if (score === 0) {
         message = "Oh me oh my! We simply CANNOT have that! Wait here for a while, I'll bring you a little something to cheer you up...";
         
-        setTimeout(function() {
+        
+        giftTimeout = setTimeout(function() {
             var gift = prompt("Quick question: Which do you prefer? cat, dog or cake? Answer in lowercase for best experience!");
+            if (gift === null) return; 
+            
             var giftMessage = "";
-
-            switch(gift) {
-                case "cake":
-                    giftMessage = "Here is a delicious cake! 🎂";
+            switch(gift.toLowerCase().trim()) {
+                case "cake": 
+                    giftMessage = "Here is a delicious cake! 🎂"; 
                     break;
-                case "cat":
-                    giftMessage = "Here is a cute kitty! 🐱";
+                case "cat": 
+                    giftMessage = "Here is a cute kitty! 🐱"; 
                     break;
-                case "dog":
-                    giftMessage = "Here is a happy puppy! 🐶";
+                case "dog": 
+                    giftMessage = "Here is a happy puppy! 🐶"; 
                     break;
-				case "Cake":
-                    giftMessage = "Here is a delicious cake! 🎂";
-                    break;
-                case "Cat":
-                    giftMessage = "Here is a cute kitty! 🐱";
-                    break;
-                case "Dog":
-                    giftMessage = "Here is a happy puppy! 🐶";
-                    break;
-                default:
-                    giftMessage = "I couldn't get one of those, so here is a beautiful flower instead! 🌸";
+                default: 
+                    giftMessage = "I couldn't get one of those, so here is a beautiful flower instead! 🌸"; 
             }
             
             if (feedbackElement) {
@@ -393,11 +410,21 @@ setTimeout(function() {
         message = "I don't think you answered the question properly.";
     }
 
+
     if (feedbackElement) {
         feedbackElement.innerHTML = message;
+        feedbackElement.style.color = "black";
+        feedbackElement.style.fontFamily = "Arial";
     }
-}, 10000);
-</script>	
+}
+
+
+setTimeout(startCheckIn, 10000);
+
+
+document.getElementById("resetBtn").addEventListener("click", startCheckIn);
+</script>
+
 		 
 </body>
 </html>
