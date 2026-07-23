@@ -371,9 +371,26 @@ setTimeout(startCheckIn, 10000);
 
 document.getElementById("resetBtn").addEventListener("click", startCheckIn);
 </script>
-
 	
- <div align="center">    
+<div align="left">
+   <h2 style="font-family: Arial; color: white;">
+        This is an 'every' iterative method
+   </h2>
+</div>
+	
+<button onClick = "checkValues()">This is</button>
+<script>
+var numbers = [-1, 0, 2, 5, -6, -8, 1.5, 6];
+function isGreaterThan0 (item, index, array){
+return (item > 0);
+}
+function checkValues(){
+	var result = numbers.every(isGreaterThan0);
+	alert(result);
+}
+</script>
+	
+<div align="center">    
         <button onClick="showImage()">Hey there! Have a flower 🌸</button>
 		<br>
 		<img src="" id = "imageHolder" onMouseOver="increaseSize()" onMouseOut="decreaseSize()">
@@ -402,9 +419,10 @@ document.getElementById("resetBtn").addEventListener("click", startCheckIn);
 			document. 
 			getElementById("imageHolder").width = "400";
 		}
-		</script>
-		
-    </center>
+	 </script>
+  
+	 
+</center>
 		 
 	<p id="p1"></p>
     <p id="p2"></p>
